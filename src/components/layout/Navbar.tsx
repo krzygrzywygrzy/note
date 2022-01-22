@@ -8,9 +8,9 @@ const Navbar: React.FC = () => {
         <Link href="/">Note</Link>
       </div>
       <div>
-        <span>Sign up</span>
+        <span>Sign in</span>
         <span className="ml-4">
-          <Link href="/join">Sign in</Link>
+          <Link href="/join">Sign up</Link>
         </span>
       </div>
     </nav>

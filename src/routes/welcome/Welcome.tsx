@@ -14,7 +14,7 @@ const Welcome: React.FC = () => {
         <span>And take them everywhere</span>
         <div className="my-8">
           <button
-            className="text-xl text-white bg-black px-4 py-2 rounded-sm"
+            className="button text-xl"
             onClick={() => setLocation("/join")}
           >
             Create Account

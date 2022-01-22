@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Route } from "wouter";
 import { supabase } from "../supabaseClient";
 import Dashboard from "./dashboard/Dashboard";
-import SignIn from "./singIn/SignIn";
+import SignUp from "./singIn/SignUp";
 import Welcome from "./welcome/Welcome";
+import { Provider } from "react-redux";
+import store from "../store/store";
 
 const Router: React.FC = () => {
   const [signedIn, setSignedIn] = useState<boolean>(false);
@@ -18,10 +20,12 @@ const Router: React.FC = () => {
 
   return (
     <div>
-      <Route path="/">{signedIn ? <Dashboard /> : <Welcome />}</Route>
-      <Route path="/join">
-        <SignIn />
-      </Route>
+      <Provider store={store}>
+        <Route path="/">{signedIn ? <Dashboard /> : <Welcome />}</Route>
+        <Route path="/join">
+          <SignUp />
+        </Route>
+      </Provider>
     </div>
   );
 };
