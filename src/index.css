@@ -23,3 +23,8 @@ code {
 .button {
   @apply text-white bg-black px-4 py-2 rounded-sm;
 }
+
+.popup {
+  background: rgba(0, 0, 0, 0.2);
+  @apply fixed top-0 left-0 w-full h-full flex justify-center items-center z-50;
+}

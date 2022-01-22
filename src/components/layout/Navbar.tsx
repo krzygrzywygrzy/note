@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "wouter";
+import Popup from "../popup/Popup";
 
 const Navbar: React.FC = () => {
+  const [signupPopup, setSignupPopup] = useState<boolean>(true);
+
   return (
     <nav className="px-12 py-4 border-b sticky top-0 z-50 bg-white flex justify-between">
       <div>
@@ -13,6 +16,13 @@ const Navbar: React.FC = () => {
           <Link href="/join">Sign up</Link>
         </span>
       </div>
+      <Popup trigger={signupPopup}>
+        <div className="bg-white rounded-sm">
+          <div className="cursor-pointer" onClick={() => setSignupPopup(false)}>
+            close
+          </div>
+        </div>
+      </Popup>
     </nav>
   );
 };
