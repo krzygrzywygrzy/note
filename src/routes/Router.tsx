@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Route } from "wouter";
 import { supabase } from "../supabaseClient";
+import Dashboard from "./dashboard/Dashboard";
+import SignIn from "./singIn/SignIn";
 import Welcome from "./welcome/Welcome";
 
 const Router: React.FC = () => {
@@ -16,7 +18,10 @@ const Router: React.FC = () => {
 
   return (
     <div>
-      <Route path="/">{signedIn ? <div>Home</div> : <Welcome />}</Route>
+      <Route path="/">{signedIn ? <Dashboard /> : <Welcome />}</Route>
+      <Route path="/join">
+        <SignIn />
+      </Route>
     </div>
   );
 };
