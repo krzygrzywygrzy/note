@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Route } from "wouter";
 import { supabase } from "../supabaseClient";
 import Dashboard from "./dashboard/Dashboard";
-import SignUp from "./singIn/SignUp";
+import SignUp from "./singnup/SignUp";
 import Welcome from "./welcome/Welcome";
 import { Provider } from "react-redux";
 import store from "../store/store";

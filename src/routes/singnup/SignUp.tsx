@@ -10,7 +10,7 @@ const SignUp: React.FC = () => {
   const { register, handleSubmit } = useForm<User>();
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [message, setMessage] = useState<string | null>();
+  const [message, setMessage] = useState<string | null>(null);
   const onSubmit: SubmitHandler<User> = async (data) => {
     try {
       setLoading(true);
@@ -45,14 +45,14 @@ const SignUp: React.FC = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             type="text"
-            className="text-input"
+            className="text-input w-128"
             placeholder="name..."
             {...register("name")}
           />
           <br />
           <input
             type="text"
-            className="text-input"
+            className="text-input w-128"
             placeholder="surname..."
             {...register("surname")}
           />
@@ -61,14 +61,14 @@ const SignUp: React.FC = () => {
           </div>
           <input
             type="text"
-            className="text-input"
+            className="text-input w-128"
             placeholder="email..."
             {...register("email")}
           />
           <br />
           <input
             type="password"
-            className="text-input"
+            className="text-input w-128"
             placeholder="password..."
             {...register("password")}
           />

@@ -17,7 +17,7 @@ code {
 }
 
 .text-input {
-  @apply focus:outline-none border-b-2 py-1 w-96 my-1;
+  @apply focus:outline-none border-b-2 py-1 my-1;
 }
 
 .button {
