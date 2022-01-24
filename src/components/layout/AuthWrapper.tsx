@@ -22,10 +22,15 @@ const AuthWrapper: React.FC = ({ children }) => {
   }
 
   if (user.error) {
+    return <div>Error :( {user.error.message}</div>;
+  }
+
+  if (!user.user) {
+    return <></>;
   }
 
   //TODO: refractor to see error if occurres
-  return user.user ? <div>{children}</div> : <div>loading...</div>;
+  return <div>{children}</div>;
 };
 
 export default AuthWrapper;

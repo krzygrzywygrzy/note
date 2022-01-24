@@ -3,6 +3,7 @@ import AuthWrapper from "../../components/layout/AuthWrapper";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { supabase } from "../../supabaseClient";
 import { thunkGetSections } from "../../store/actions/sectionActions";
+import DashboardSections from "./DashboardSections";
 
 const DashboardMenu: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -18,6 +19,7 @@ const DashboardMenu: React.FC = () => {
           {supabase.auth.user()!.user_metadata.surname}
         </div>
       </div>
+      <DashboardSections />
     </AuthWrapper>
   );
 };

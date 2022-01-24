@@ -13,7 +13,7 @@ export const thunkGetUser = ():
         ThunkDispatch<RootState, unknown, AnyAction>) => {
         try {
             dispatch({ type: load });
-
+            console.log("eee");
             const { data, error } =
                 await supabase.from(SupabaseTables.USER).
                     select().eq("user_id", supabase.auth.user()!.id).single();
