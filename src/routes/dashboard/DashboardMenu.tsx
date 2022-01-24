@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AuthWrapper from "../../components/layout/AuthWrapper";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { supabase } from "../../supabaseClient";
 
 const DashboardMenu: React.FC = () => {
+  const dispatch = useAppDispatch();
+  useEffect(() => {}, []);
+
   return (
     <AuthWrapper>
       <div className="mr-4 w-96 h-screen border-r">
