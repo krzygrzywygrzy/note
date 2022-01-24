@@ -6,3 +6,5 @@ type User = {
 };
 
 export default User;
+
+export type DbUser = {}
