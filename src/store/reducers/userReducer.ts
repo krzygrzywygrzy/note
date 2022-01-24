@@ -26,3 +26,6 @@ export const userSlice = createSlice({
         }
     }
 });
+
+export const { load, loaded, error } = userSlice.actions;
+export default userSlice.reducer;

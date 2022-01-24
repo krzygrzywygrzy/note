@@ -13,3 +13,4 @@ export class StandardNote implements Note {
     content: any[];
 
 }
+

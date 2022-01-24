@@ -7,4 +7,8 @@ type User = {
 
 export default User;
 
-export type DbUser = {}
+export type DbUser = {
+    id: number,
+    created_at: Date,
+    user_id: string,
+}
