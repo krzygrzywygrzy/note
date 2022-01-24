@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import User from "../../models/User";
 import { supabase } from "../../supabaseClient";
 import { useLocation } from "wouter";
+import SupabaseTables from "../../models/SupabaseTables";
 
 const SignUp: React.FC = () => {
   const [, setLocation] = useLocation();
@@ -14,6 +15,9 @@ const SignUp: React.FC = () => {
   const onSubmit: SubmitHandler<User> = async (data) => {
     try {
       setLoading(true);
+
+      //TODO: trnasaction
+
       const { error } = await supabase.auth.signUp(
         {
           email: data.email,
@@ -28,6 +32,14 @@ const SignUp: React.FC = () => {
       );
 
       if (error) throw error;
+
+      //add new user to users table
+      const user = await supabase
+        .from(SupabaseTables.USER)
+        .insert({ user_id: supabase.auth.user()!.id });
+
+      if (user.error) throw user.error;
+
       setLocation("/");
       window.location.reload();
     } catch (err: any) {

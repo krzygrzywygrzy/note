@@ -15,6 +15,7 @@ export const thunkGetSections = ():
         getState: () => RootState,
     ) => {
         try {
+
             dispatch({ type: load })
 
             //get user data from reducer

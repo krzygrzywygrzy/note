@@ -19,7 +19,7 @@ export const sectionSlice = createSlice({
             return { loading: true };
         },
         loaded: (_, action: PayloadAction<Section[]>) => {
-            return { loading: false, user: action.payload };
+            return { loading: false, sections: action.payload };
         },
         error: (_, action: PayloadAction<Failure>) => {
             return { loading: false, error: action.payload };
