@@ -2,10 +2,13 @@ import React, { useEffect } from "react";
 import AuthWrapper from "../../components/layout/AuthWrapper";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { supabase } from "../../supabaseClient";
+import { thunkGetUser } from "../../store/actions/userActions";
 
 const DashboardMenu: React.FC = () => {
   const dispatch = useAppDispatch();
-  useEffect(() => {}, []);
+  useEffect(() => {
+    dispatch(thunkGetUser());
+  }, []);
 
   return (
     <AuthWrapper>
