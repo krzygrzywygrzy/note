@@ -28,8 +28,8 @@ const SignUp: React.FC = () => {
       );
 
       if (error) throw error;
-      window.location.reload();
       setLocation("/");
+      window.location.reload();
     } catch (err: any) {
       setMessage(err.error_description || err.message);
       setLoading(false);

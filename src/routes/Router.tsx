@@ -6,6 +6,7 @@ import SignUp from "./singnup/SignUp";
 import Welcome from "./welcome/Welcome";
 import { Provider } from "react-redux";
 import store from "../store/store";
+import Account from "./account/Account";
 
 const Router: React.FC = () => {
   const [signedIn, setSignedIn] = useState<boolean>(false);
@@ -24,6 +25,9 @@ const Router: React.FC = () => {
         <Route path="/">{signedIn ? <Dashboard /> : <Welcome />}</Route>
         <Route path="/join">
           <SignUp />
+        </Route>
+        <Route path="/account">
+          <Account />
         </Route>
       </Provider>
     </div>
