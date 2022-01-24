@@ -1,14 +1,17 @@
 import React from "react";
+import AuthWrapper from "../../components/layout/AuthWrapper";
 import DashboardMenu from "./DashboardMenu";
 
 const Dashboard: React.FC = () => {
   return (
-    <div className="h-full flex">
-      <div>
-        <DashboardMenu />
+    <AuthWrapper>
+      <div className="h-full flex">
+        <div>
+          <DashboardMenu />
+        </div>
+        <div>actual content</div>
       </div>
-      <div>actual content</div>
-    </div>
+    </AuthWrapper>
   );
 };
 

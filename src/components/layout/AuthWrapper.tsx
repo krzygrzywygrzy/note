@@ -8,14 +8,15 @@ const AuthWrapper: React.FC = ({ children }) => {
   const [, setLocation] = useLocation();
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.user);
+  // useEffect(() => {
+  //   if (!supabase.auth.user()) {
+  //     setLocation("/");
+  //   }
+  // });
+
   useEffect(() => {
-    if (!supabase.auth.user()) {
-      setLocation("/");
-      window.location.reload();
-    } else {
-      dispatch(thunkGetUser());
-    }
-  });
+    dispatch(thunkGetUser());
+  }, []);
 
   if (user.loading) {
     return <div>loading</div>;
