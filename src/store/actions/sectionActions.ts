@@ -29,7 +29,7 @@ export const thunkGetSections = ():
             dispatch({ type: loaded, payload: data ?? [] });
 
         } catch (err: any) {
-            dispatch({ type: sectionError, payload: err.error_description || err.message });
+            dispatch({ type: sectionError, payload: { message: err.error_description || err.message } });
         }
     }
 }

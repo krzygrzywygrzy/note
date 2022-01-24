@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import Failure from '../../models/Failure';
 import Section from '../../models/Section';
 type SectionState = {
     loading: boolean;
     sections?: Section[],
-    error?: any;
+    error?: Failure;
 }
 
 const initialState: SectionState = {
@@ -20,7 +21,7 @@ export const sectionSlice = createSlice({
         loaded: (_, action: PayloadAction<Section[]>) => {
             return { loading: false, user: action.payload };
         },
-        error: (_, action: PayloadAction<string>) => {
+        error: (_, action: PayloadAction<Failure>) => {
             return { loading: false, error: action.payload };
         }
     }

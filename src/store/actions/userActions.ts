@@ -22,7 +22,7 @@ export const thunkGetUser = ():
             if (!data) throw Error("No such user");
             dispatch({ type: loaded, payload: data });
         } catch (err: any) {
-            dispatch({ type: error, payload: err.error_description || err.message });
+            dispatch({ type: error, payload: { message: err.error_description || err.message } });
         }
 
     }

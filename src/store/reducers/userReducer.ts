@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import Failure from '../../models/Failure';
 import { DbUser } from '../../models/User';
 
 interface UserState {
     loading: boolean;
     user?: DbUser,
-    error?: any;
+    error?: Failure;
 }
 
 const initialState: UserState = {
@@ -21,7 +22,7 @@ export const userSlice = createSlice({
         loaded: (_, action: PayloadAction<DbUser>) => {
             return { loading: false, user: action.payload };
         },
-        error: (_, action: PayloadAction<string>) => {
+        error: (_, action: PayloadAction<Failure>) => {
             return { loading: false, error: action.payload };
         }
     }
