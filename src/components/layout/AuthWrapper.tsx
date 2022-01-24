@@ -8,14 +8,11 @@ const AuthWrapper: React.FC = ({ children }) => {
   const [, setLocation] = useLocation();
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.user);
-  // useEffect(() => {
-  //   if (!supabase.auth.user()) {
-  //     setLocation("/");
-  //   }
-  // });
+
+  //TOOD: redirect if there is no user logged in supabase
 
   useEffect(() => {
-    dispatch(thunkGetUser());
+    if (!user.user) dispatch(thunkGetUser());
   }, []);
 
   if (user.loading) {
@@ -30,7 +27,6 @@ const AuthWrapper: React.FC = ({ children }) => {
     return <></>;
   }
 
-  //TODO: refractor to see error if occurres
   return <div>{children}</div>;
 };
 

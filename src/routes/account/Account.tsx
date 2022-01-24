@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useLocation } from "wouter";
+import React from "react";
 import AuthWrapper from "../../components/layout/AuthWrapper";
 
 const Account: React.FC = () => {
