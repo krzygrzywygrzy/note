@@ -3,6 +3,7 @@ import { RootState } from "../store";
 import { load, loaded, error as sectionError } from "../reducers/sectionReducer";
 import { supabase } from "../../supabaseClient";
 import SupabaseTables from "../../models/SupabaseTables";
+import Section from "../../models/Section";
 
 /**
  * Thnuk action that gets section list
@@ -28,6 +29,25 @@ export const thunkGetSections = ():
 
             if (error) throw error;
             dispatch({ type: loaded, payload: data ?? [] });
+
+        } catch (err: any) {
+            dispatch({ type: sectionError, payload: { message: err.error_description || err.message } });
+        }
+    }
+}
+
+export const thunkAddSection = (newSection: Section):
+    ThunkAction<void, RootState, unknown, AnyAction> => {
+    return async (
+        dispatch:
+            ThunkDispatch<RootState, unknown, AnyAction>,
+        getState: () => RootState,
+    ) => {
+        try {
+            var oldSections = getState().section.sections;
+            if (!oldSections) throw Error("Your pages are null!");
+
+            dispatch({ type: loaded, payload: [...oldSections, newSection] })
 
         } catch (err: any) {
             dispatch({ type: sectionError, payload: { message: err.error_description || err.message } });

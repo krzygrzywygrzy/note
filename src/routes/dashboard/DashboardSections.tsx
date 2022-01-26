@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useAppSelector } from "../../store/hooks";
 
 const DashboardSections: React.FC = () => {
@@ -9,7 +9,7 @@ const DashboardSections: React.FC = () => {
   }
 
   if (sections.error) {
-    return <div>Error :( while loading your sections</div>;
+    return <div>Error :( while loading your pages</div>;
   }
 
   if (!sections.sections) {
@@ -21,7 +21,7 @@ const DashboardSections: React.FC = () => {
       {sections.sections.length > 0 ? (
         <div>TODO: display sections</div>
       ) : (
-        <div>You dont have any sections</div>
+        <div>You dont have any pages</div>
       )}
     </section>
   );
