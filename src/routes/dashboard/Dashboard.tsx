@@ -1,5 +1,6 @@
 import React from "react";
 import AuthWrapper from "../../components/layout/AuthWrapper";
+import DasboardPage from "./DasboardPage";
 import DashboardMenu from "./DashboardMenu";
 import EmptyDashboard from "./EmptyDashboard";
 
@@ -15,7 +16,7 @@ const Dashboard: React.FC<Props> = ({ section_name }) => {
           <DashboardMenu />
         </div>
         <div className="w-full">
-          {section_name ? <div>notes</div> : <EmptyDashboard />}
+          {section_name ? <DasboardPage /> : <EmptyDashboard />}
         </div>
       </div>
     </AuthWrapper>

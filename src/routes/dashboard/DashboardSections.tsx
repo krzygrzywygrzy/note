@@ -1,8 +1,10 @@
 import React from "react";
 import { useAppSelector } from "../../store/hooks";
+import { useLocation } from "wouter";
 
 const DashboardSections: React.FC = () => {
   const sections = useAppSelector((state) => state.section);
+  const [, setLocation] = useLocation();
 
   if (sections.loading) {
     return <div>loading...</div>;
@@ -19,7 +21,22 @@ const DashboardSections: React.FC = () => {
   return (
     <section>
       {sections.sections.length > 0 ? (
-        <div>TODO: display sections</div>
+        <div>
+          {sections.sections.map((section) => {
+            return (
+              <div
+                className={`rounded cursor-pointer px-2 py-1 hover:bg-gray-200 ${
+                  "/" + section.name === window.location.pathname &&
+                  " bg-gray-200"
+                }`}
+                key={section.id}
+                onClick={() => setLocation(`/${section.name}`)}
+              >
+                {section.name}
+              </div>
+            );
+          })}
+        </div>
       ) : (
         <div>You dont have any pages</div>
       )}

@@ -23,6 +23,11 @@ const Router: React.FC = () => {
     <div>
       <Provider store={store}>
         <Route path="/">{signedIn ? <Dashboard /> : <Welcome />}</Route>
+        <Route path="/:name">
+          {(params) => {
+            return <Dashboard section_name={params.name} />;
+          }}
+        </Route>
         <Route path="/join">
           <SignUp />
         </Route>

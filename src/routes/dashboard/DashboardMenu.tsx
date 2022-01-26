@@ -17,7 +17,7 @@ const DashboardMenu: React.FC = () => {
   }, []);
 
   return (
-    <div className="mr-4 px-4 w-96 h-screen border-r">
+    <div className="px-4 w-96 h-screen border-r">
       <div className="text-center py-4 text-xl">
         Welcome {supabase.auth.user()!.user_metadata.name}
       </div>

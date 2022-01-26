@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import Failure from '../../models/Failure';
 import Section from '../../models/Section';
+
 type SectionState = {
     loading: boolean;
     sections?: Section[],
