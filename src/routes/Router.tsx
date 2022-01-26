@@ -23,7 +23,7 @@ const Router: React.FC = () => {
     <div>
       <Provider store={store}>
         <Route path="/">{signedIn ? <Dashboard /> : <Welcome />}</Route>
-        <Route path="/:name">
+        <Route path="/page/:name">
           {(params) => {
             return <Dashboard section_name={params.name} />;
           }}

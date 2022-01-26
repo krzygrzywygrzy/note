@@ -5,7 +5,7 @@ const DasboardPage: React.FC = () => {
   var current_section = useAppSelector(
     (state) =>
       state.section.sections?.filter(
-        (el) => "/" + el.name === window.location.pathname
+        (el) => "/page/" + el.name === window.location.pathname
       )[0]
   );
 

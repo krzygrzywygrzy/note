@@ -51,7 +51,7 @@ const SignIn: React.FC<Props> = ({ close }) => {
             {...register("password")}
           />
           {message && <div className="font-bold my-4">{message}</div>}
-          <button className="button">
+          <button className="button mt-4">
             {loading ? "Loading..." : "Sign in"}
           </button>
         </form>

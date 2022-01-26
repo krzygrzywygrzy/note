@@ -3,11 +3,13 @@ import { useAppDispatch } from "../../store/hooks";
 import { supabase } from "../../supabaseClient";
 import { thunkGetSections } from "../../store/actions/sectionActions";
 import DashboardSections from "./DashboardSections";
-import { HiFolderAdd } from "react-icons/hi";
+import { HiFolderAdd, HiCog } from "react-icons/hi";
 import Popup from "../../components/popup/Popup";
 import DashboardSectionsAdd from "./DashboardSectionsAdd";
+import { useLocation } from "wouter";
 
 const DashboardMenu: React.FC = () => {
+  const [, setLocation] = useLocation();
   const [showAddSectionPopup, setShowAddSectionPopup] =
     useState<boolean>(false);
 
@@ -18,8 +20,13 @@ const DashboardMenu: React.FC = () => {
 
   return (
     <div className="px-4 w-96 h-screen border-r">
-      <div className="text-center py-4 text-xl">
-        Welcome {supabase.auth.user()!.user_metadata.name}
+      <div className="text-center py-4 text-xl flex items-center">
+        <div className="mr-2">
+          Welcome {supabase.auth.user()!.user_metadata.name}
+        </div>
+        <div className="cursor-pointer" onClick={() => setLocation("/account")}>
+          <HiCog size={24} />
+        </div>
       </div>
       <DashboardSections />
       <div

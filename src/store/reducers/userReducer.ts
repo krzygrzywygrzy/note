@@ -24,9 +24,12 @@ export const userSlice = createSlice({
         },
         error: (_, action: PayloadAction<Failure>) => {
             return { loading: false, error: action.payload };
-        }
+        },
+        signOut: (_) => {
+            return { ...initialState };
+        },
     }
 });
 
-export const { load, loaded, error } = userSlice.actions;
+export const { load, loaded, error, signOut } = userSlice.actions;
 export default userSlice.reducer;

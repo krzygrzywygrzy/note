@@ -34,7 +34,7 @@ const DashboardSectionsAdd: React.FC<Props> = ({ close }) => {
       if (error) throw error;
       dispatch(thunkAddSection(data));
       if (close) close();
-      setLocation(`/${form.name}`);
+      setLocation(`/page/${form.name}`);
     } catch (err: any) {
       setMessage(err.error_description || err.message);
       setLoading(false);

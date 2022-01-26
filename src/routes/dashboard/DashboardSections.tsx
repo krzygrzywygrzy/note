@@ -26,11 +26,11 @@ const DashboardSections: React.FC = () => {
             return (
               <div
                 className={`rounded cursor-pointer px-2 py-1 hover:bg-gray-200 ${
-                  "/" + section.name === window.location.pathname &&
+                  "/page/" + section.name === window.location.pathname &&
                   " bg-gray-200"
                 }`}
                 key={section.id}
-                onClick={() => setLocation(`/${section.name}`)}
+                onClick={() => setLocation(`/page/${section.name}`)}
               >
                 {section.name}
               </div>
