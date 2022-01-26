@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAppSelector } from "../../store/hooks";
+import { HiDocumentAdd } from "react-icons/hi";
+import { supabase } from "../../supabaseClient";
+import SupabaseTables from "../../models/SupabaseTables";
 
 const DasboardPage: React.FC = () => {
   var current_section = useAppSelector(
@@ -8,6 +11,20 @@ const DasboardPage: React.FC = () => {
         (el) => "/page/" + el.name === window.location.pathname
       )[0]
   );
+
+  const addNote = async () => {
+    try {
+      const { data, error } = await supabase
+        .from(SupabaseTables.NOTES)
+        .insert({ section_id: current_section?.id });
+
+      if (error) throw error;
+
+      //TODO: finish
+    } catch (err) {
+      //TODO: display popup with error
+    }
+  };
 
   if (!current_section) {
     return <div>Error</div>;
@@ -21,7 +38,12 @@ const DasboardPage: React.FC = () => {
           alt="background"
           className="w-full h-96 object-cover"
         />
-        <p className="px-12 py-8 text-3xl">{current_section.name}</p>
+        <div className="flex items-center px-12 py-8">
+          <div className=" text-3xl mr-2">{current_section.name}</div>
+          <div className="cursor-pointer">
+            <HiDocumentAdd size={40} />
+          </div>
+        </div>
       </header>
     </div>
   );
