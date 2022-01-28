@@ -1,7 +1,7 @@
 import { NotePart } from "./NoteParts";
 import NoteTypes from "./NoteTypes";
 
-export interface Note {
+interface Note {
   type: NoteTypes;
   section_id: number;
   content: any[];

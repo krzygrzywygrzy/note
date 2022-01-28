@@ -3,12 +3,14 @@ import { HiDocumentAdd } from "react-icons/hi";
 import { StandardNote } from "../../models/Note";
 import SupabaseTables from "../../models/SupabaseTables";
 import { supabase } from "../../supabaseClient";
+import { useLocation } from "wouter";
 
 type Props = {
   section_id: number;
 };
 
 const AddNote: React.FC<Props> = ({ section_id }) => {
+  const [, setLocation] = useLocation();
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -17,9 +19,10 @@ const AddNote: React.FC<Props> = ({ section_id }) => {
       setLoading(true);
       const { error, data } = await supabase
         .from(SupabaseTables.NOTES)
-        .insert(new StandardNote(section_id, []));
-
+        .insert(new StandardNote(section_id, []))
+        .single();
       if (error) throw error;
+      setLocation(`/note/${data.id}`);
     } catch (err: any) {
       setError(err.error_description || err.message);
       setLoading(false);
