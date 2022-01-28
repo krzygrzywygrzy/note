@@ -20,10 +20,10 @@ const Account: React.FC = () => {
     <AuthWrapper>
       <div className="flex">
         <DashboardMenu />
-        <div>
+        <section className="m-4">
           <p>ACCOUNT</p>
           <button onClick={logOut}>Log out</button>
-        </div>
+        </section>
       </div>
     </AuthWrapper>
   );

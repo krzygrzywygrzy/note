@@ -1,6 +1,6 @@
 import React from "react";
 import { useAppSelector } from "../../store/hooks";
-import AddNote from "./AddNote";
+import AddNote from "../Note/AddNote";
 
 const DasboardPage: React.FC = () => {
   var current_section = useAppSelector(
