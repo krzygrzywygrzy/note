@@ -25,7 +25,7 @@ const DashboardSections: React.FC = () => {
           {sections.sections.map((section) => {
             return (
               <div
-                className={`rounded cursor-pointer px-2 py-1 hover:bg-gray-200 ${
+                className={`rounded cursor-pointer px-2 py-1 my-1 hover:bg-gray-200 ${
                   "/page/" + section.name === window.location.pathname &&
                   " bg-gray-200"
                 }`}

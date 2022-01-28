@@ -1,16 +1,18 @@
+import { NotePart } from "./NoteParts";
 import NoteTypes from "./NoteTypes";
 
 export interface Note {
-    type: NoteTypes;
-    content: any[];
+  type: NoteTypes;
+  section_id: number;
+  content: any[];
 }
 
 export class StandardNote implements Note {
-    constructor(content: any[]) {
-        this.content = content;
-    }
-    type: NoteTypes = NoteTypes.STANDARD;
-    content: any[];
-
+  constructor(section_id: number, content: NotePart[]) {
+    this.section_id = section_id;
+    this.content = content;
+  }
+  type: NoteTypes = NoteTypes.STANDARD;
+  content: NotePart[];
+  section_id: number;
 }
-

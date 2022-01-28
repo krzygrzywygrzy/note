@@ -16,7 +16,7 @@ const AuthWrapper: React.FC = ({ children }) => {
   }, []);
 
   if (user.loading) {
-    return <div>loading</div>;
+    return <div className="text-center">loading</div>;
   }
 
   if (user.error) {
