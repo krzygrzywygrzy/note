@@ -7,6 +7,7 @@ import Welcome from "./welcome/Welcome";
 import { Provider } from "react-redux";
 import store from "../store/store";
 import Account from "./account/Account";
+import Note from "./Note/Note";
 
 const Router: React.FC = () => {
   const [signedIn, setSignedIn] = useState<boolean>(false);
@@ -33,6 +34,12 @@ const Router: React.FC = () => {
         </Route>
         <Route path="/account">
           <Account />
+        </Route>
+        <Route path="/note/:id">
+          {(params) => <Note id={parseInt(params.id)} />}
+        </Route>
+        <Route path="/note">
+          <Note />
         </Route>
       </Provider>
     </div>

@@ -1,7 +1,16 @@
 import React from "react";
+import DashboardMenu from "../dashboard/DashboardMenu";
 
-const Note: React.FC = () => {
-  return <div></div>;
+type Props = {
+  id?: number;
+};
+
+const Note: React.FC<Props> = ({ id }) => {
+  return (
+    <div className="flex">
+      <DashboardMenu />
+    </div>
+  );
 };
 
 export default Note;
