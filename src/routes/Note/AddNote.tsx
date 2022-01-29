@@ -19,7 +19,7 @@ const AddNote: React.FC<Props> = ({ section_id }) => {
       setLoading(true);
       const { error, data } = await supabase
         .from(SupabaseTables.NOTES)
-        .insert(new StandardNote(section_id, []))
+        .insert(new StandardNote(section_id, [], undefined))
         .single();
       if (error) throw error;
       setLocation(`/note/${data.id}`);
@@ -30,7 +30,7 @@ const AddNote: React.FC<Props> = ({ section_id }) => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex items-center">
       <div
         className="cursor-pointer text-white bg-black px-4 py-2 flex rounded"
         onClick={addNote}
@@ -40,7 +40,7 @@ const AddNote: React.FC<Props> = ({ section_id }) => {
           {loading ? <div>Loading...</div> : <div>Add note</div>}
         </div>
       </div>
-      {error && <div>{error}</div>}
+      {error && <div className="ml-4 text-red-500">{error}</div>}
     </div>
   );
 };
